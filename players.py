@@ -5,7 +5,7 @@ from app import db
 
 players_bp = Blueprint('players_bp', __name__)
 
-@players_bp.route("/players", methods=['GET', 'POST'])
+@players_bp.route("/", methods=['GET', 'POST'])
 @login_required
 def manage_players():
     players = Player.query.filter_by(user_id=current_user.id).all()

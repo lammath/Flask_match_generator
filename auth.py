@@ -24,7 +24,7 @@ def login():
         user = User.query.filter_by(email=request.form['email']).first()
         if user and bcrypt.check_password_hash(user.password, request.form['password']):
             login_user(user)
-            return redirect(url_for('dashboard'))
+            return redirect(url_for('players_bp.manage_players'))
         else:
             flash('Login failed. Please check your email and password.', 'danger')
     return render_template('login.html')
